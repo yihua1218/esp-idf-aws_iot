@@ -295,6 +295,8 @@ void aws_iot_task(void *param) {
 
 static void initialise_wifi(void)
 {
+    // https://esp32.com/viewtopic.php?t=1326
+    nvs_flash_init();
     tcpip_adapter_init();
     wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
